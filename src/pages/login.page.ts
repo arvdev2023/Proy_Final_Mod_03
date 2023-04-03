@@ -1,7 +1,7 @@
 import { BasePage } from "./base.page";
 import { ElementActions } from "../core/element-actions";
 
-class LoginPage extends BasePage {
+export class LoginPage extends BasePage {
     private username: string = '//input[@id="input-email"]';
     private password: string = '//input[@id="input-password"]';
     private buttonSign: string = '//input[@value="Login"]';

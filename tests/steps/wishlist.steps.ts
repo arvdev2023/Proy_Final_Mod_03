@@ -6,16 +6,8 @@ import { expect } from "chai";
 
 setDefaultTimeout(configPage.lapseTime)
 
-Given("The user logins into the app", async function () {
-    await loginPage.setUserName(configPage.userName)
-    await loginPage.setPassword(configPage.passName)
-    await loginPage.clickButton()
-})
-Given("The user goes to the page shopping", async function () {
-    await loginPage.clickHome()
-    await shoppingPage.spanVisible()
-})
-When("The user puts the items {string} into the wishlist", async function (items: string) {
+
+Given("The user puts the items {string} into the wishlist", async function (items: string) {
     let arrayItems: any[] = items.split(",")
     for (let i = 0; i < arrayItems.length; i++) {
         await shoppingPage.putItemToWishlist(arrayItems[i] as number)

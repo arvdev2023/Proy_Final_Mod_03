@@ -1,7 +1,7 @@
 import { BasePage } from "./base.page";
 import { ElementActions } from "../core/element-actions";
 
-class ShoppingPage extends BasePage {
+export class ShoppingPage extends BasePage {
     private buttonCart: string = '//div[@id="cart"]/button'
     private buttonTableCart = '//div/p/a[@href="https://thetestingworld.com/shop/index.php?route=checkout/cart"]'
     private spanTotal = '//a[@id="wishlist-total"]/span';

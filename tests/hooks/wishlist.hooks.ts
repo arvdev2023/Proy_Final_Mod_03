@@ -4,7 +4,7 @@ import { loginPage } from "../../src/pages/login.page";
 import { driverInstance } from "../../src/core/driver";
 import { configPage } from "../../userData";
 
-Before({ name: 'Before UI Hook', tags: '@addItems' }, async function () {
+Before({ name: 'Before UI Hook', tags: '@addWishlist' }, async function () {
     await driverInstance.startDriver()
     await driverInstance.goToPage(configPage.linkLogin)
 
@@ -15,6 +15,6 @@ Before({ name: 'Before UI Hook', tags: '@addItems' }, async function () {
 
 });
 
-After({ name: 'After UI Hook', tags: '@addItems' }, async function () {
+After({ name: 'After UI Hook', tags: '@addWishlist' }, async function () {
     await driverInstance.closeDriver();
 });
