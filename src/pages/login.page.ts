@@ -1,4 +1,5 @@
 import { BasePage } from "./base.page";
+import { ElementActions } from "../core/element-actions";
 
 class LoginPage extends BasePage {
     private username: string = '//input[@id="input-email"]';
@@ -9,16 +10,16 @@ class LoginPage extends BasePage {
         super()
     }
     async setUserName(user: string) {
-        await this.driver.Page.fill(this.username, user)
+        await ElementActions.setText(this.username, user)
     }
     async setPassword(pass: string) {
-        await this.driver.Page.fill(this.password, pass)
+        await ElementActions.setText(this.password, pass)
     }
     async clickButton() {
-        await this.driver.Page.click(this.buttonSign)
+        await ElementActions.click(this.buttonSign)
     }
     async clickHome() {
-        await this.driver.Page.click(this.selectorHome)
+        await ElementActions.click(this.selectorHome)
     }
 }
 export const loginPage = new LoginPage()

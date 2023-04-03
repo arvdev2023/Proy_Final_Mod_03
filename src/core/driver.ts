@@ -9,7 +9,7 @@ export class Driver {
     async startDriver() {
         this.browser = await chromium.launch(
             {
-                headless: false
+                headless: false, slowMo: 100
             }
         );
         this.context = await this.browser.newContext();

@@ -23,7 +23,8 @@ export class ElementActions {
     }
 
     static async getElementText(locator: string): Promise<string> {
-        await driverInstance.Page.waitForSelector(locator);
-        return await driverInstance.Page.innerText(locator);
+        -await driverInstance.Page.waitForSelector(locator);
+        console.log(locator)
+        return (await driverInstance.Page.innerText(locator)).valueOf();
     }
 }
