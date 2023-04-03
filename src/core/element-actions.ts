@@ -1,4 +1,6 @@
+
 import { driverInstance } from "./driver";
+import { expect } from "chai";
 export class ElementActions {
 
     static async click(locator: string) {
@@ -23,8 +25,13 @@ export class ElementActions {
     }
 
     static async getElementText(locator: string): Promise<string> {
-        -await driverInstance.Page.waitForSelector(locator);
-        console.log(locator)
-        return (await driverInstance.Page.innerText(locator)).valueOf();
+        await driverInstance.Page.waitForSelector(locator);
+        return (await driverInstance.Page.innerText(locator));
     }
+    static async getTextAttribute(locator: string, attribute: string): Promise<string | null> {
+        await driverInstance.Page.waitForSelector(locator)
+        let element = driverInstance.Page.locator(locator)
+        return (await element.getAttribute(attribute))
+    }
+
 }

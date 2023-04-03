@@ -4,7 +4,7 @@ import { ElementActions } from "../core/element-actions";
 export class ShoppingPage extends BasePage {
     private buttonCart: string = '//div[@id="cart"]/button'
     private buttonTableCart = '//div/p/a[@href="https://thetestingworld.com/shop/index.php?route=checkout/cart"]'
-    private spanTotal = '//a[@id="wishlist-total"]/span';
+    private textFeatured='//div/h3[text()="Featured"]'
     constructor() {
         super()
     }
@@ -22,11 +22,8 @@ export class ShoppingPage extends BasePage {
         let selectorItem = '//div/button[@onclick="wishlist.add(' + '\'' + idItem + '\'' + ');"]'
         await ElementActions.click(selectorItem)
     }
-    async spanVisible() {
-        await ElementActions.isElementVisible(this.spanTotal)
-    }
-    async getElementTextSpanTotal() {
-        await ElementActions.getElementText(this.spanTotal)
+    async textFeaturedVisible(){
+        await ElementActions.isElementVisible(this.textFeatured)
     }
 
 }

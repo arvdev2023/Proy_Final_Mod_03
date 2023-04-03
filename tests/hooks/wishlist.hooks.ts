@@ -3,18 +3,18 @@ import { BasePage } from "../../src/pages/base.page";
 import { loginPage } from "../../src/pages/login.page";
 import { driverInstance } from "../../src/core/driver";
 import { configPage } from "../../userData";
+import { expect } from "chai";
 
-Before({ name: 'Before UI Hook', tags: '@addWishlist' }, async function () {
+
+Before({ name: 'Before UI Hook', tags: '@addDeleteWishlist' }, async function () {
     await driverInstance.startDriver()
     await driverInstance.goToPage(configPage.linkLogin)
 
     await loginPage.setUserName(configPage.userName)
     await loginPage.setPassword(configPage.passName)
     await loginPage.clickButton()
-    await loginPage.clickHome()
-
 });
 
-After({ name: 'After UI Hook', tags: '@addWishlist' }, async function () {
+After({ name: 'After UI Hook', tags: '@addDeleteWishlist' }, async function () {
     await driverInstance.closeDriver();
 });

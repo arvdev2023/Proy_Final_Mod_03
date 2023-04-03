@@ -1,7 +1,9 @@
-@addWishlist
+@addDeleteWishlist
 Feature: Add Items on the Wishlist
 
 Scenario:
 Given The user puts the items "43,40,42" into the wishlist
-Then The size of the array "43,40,42"  must be equals to the message of wishlist span
+When The user clicks into the favorite option
+Then The user deletes "43,40,42" from the wishlist table
+
 
