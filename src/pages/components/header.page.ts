@@ -1,9 +1,9 @@
 import { BasePage } from "../base.page";
 import { ElementActions } from "../../core/element-actions";
 class HeaderPage extends BasePage {
-    private spanTotal = '//a[@id="wishlist-total"]/span';
-    private hrefSpanTotal = '//a[@id="wishlist-total"]'
-    private attributeSpan = 'title'
+    private spanTotal:string = '//a[@id="wishlist-total"]/span';
+    private hrefSpanTotal:string = '//a[@id="wishlist-total"]'
+    private attributeSpan:string = 'title'
     constructor() {
         super()
     }
