@@ -3,6 +3,7 @@ import { BasePage } from "../../src/pages/base.page";
 import { loginPage } from "../../src/pages/login.page";
 import { driverInstance } from "../../src/core/driver";
 import { configPage } from "../../userData";
+import { CustomWorld } from "../../cucumber.config";
 import { expect } from "chai";
 
 
@@ -17,4 +18,10 @@ Before({ name: 'Before UI Hook', tags: '@addDeleteWishlist' }, async function ()
 
 After({ name: 'After UI Hook', tags: '@addDeleteWishlist' }, async function () {
     await driverInstance.closeDriver();
+});
+After({name: 'Take Screenshot', tags: '@addDeleteWishlist'},async function(this: CustomWorld, scenario) {
+    if(scenario.result?.status == Status.FAILED) {
+        const image = await driverInstance.Page.screenshot();
+        this.attach(image, 'image/png');
+    }
 });

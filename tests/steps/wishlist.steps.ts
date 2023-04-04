@@ -26,6 +26,6 @@ Then("The user deletes {string} from the wishlist table", async function (items:
         console.log("****************** Eliminando item " + arrayItems[i] + "**************")
         await wishListPage.deleteItemWishlist(arrayItems[i] as number)
         let visibleItem = await wishListPage.itemWishListVisible(arrayItems[i] as number)
-        expect(visibleItem).to.be.true
+        expect(visibleItem).to.be.false
     }
 })
