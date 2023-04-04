@@ -23,15 +23,14 @@ export class ElementActions {
             timeout: 10000
         });
     }
+    static async selectOption(locator: string, value: string): Promise<void> {
+        await driverInstance.Page.waitForSelector(locator)
+        await driverInstance.Page.locator(locator).selectOption(value)
+    }
 
     static async getElementText(locator: string): Promise<string> {
         await driverInstance.Page.waitForSelector(locator);
         return (await driverInstance.Page.innerText(locator));
-    }
-    static async getTextAttribute(locator: string, attribute: string): Promise<string | null> {
-        await driverInstance.Page.waitForSelector(locator)
-        let element = driverInstance.Page.locator(locator)
-        return (await element.getAttribute(attribute))
     }
 
 }
