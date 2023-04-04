@@ -16,9 +16,6 @@ class HeaderPage extends BasePage {
     async clickSpanTotal() {
         await ElementActions.click(this.hrefSpanTotal)
     }
-    async getValueAtrributeSpan() {
-        await ElementActions.getTextAttribute(this.hrefSpanTotal, this.attributeSpan);
-    }
 
 }
 export const headerPage = new HeaderPage()

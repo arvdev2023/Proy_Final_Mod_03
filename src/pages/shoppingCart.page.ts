@@ -15,7 +15,7 @@ class ShoppingCart extends BasePage {
     private inputGit: string = '//input[@id="input-voucher"]'
     private buttonCheckOut: string = '//a[text()="Checkout"]'
 
-    private textCheckout: string = '/div[@id="content"]/h1[text()="Checkout"]'
+    private textCheckout: string = '//div[@id="content"]/h1[text()="Checkout"]'
 
     async clickDropDownCoupon(): Promise<void> {
         await ElementActions.click(this.dropdownCoupon)
@@ -43,6 +43,12 @@ class ShoppingCart extends BasePage {
     }
     async dropDownCouponVisible(): Promise<boolean> {
         return await ElementActions.isElementVisible(this.dropdownCoupon)
+    }
+    async dropDownShippingVisible(): Promise<boolean> {
+        return await ElementActions.isElementVisible(this.dropDownShipping)
+    }
+    async dropDownGitVisible(): Promise<boolean> {
+        return await ElementActions.isElementVisible(this.dropDownGit)
     }
     async clickCheckout(): Promise<void> {
         await ElementActions.click(this.buttonCheckOut)

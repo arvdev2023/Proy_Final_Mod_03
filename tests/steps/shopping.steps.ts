@@ -3,6 +3,7 @@ import { configPage } from "../../userData";
 import { loginPage } from "../../src/pages/login.page";
 import { shoppingPage } from "../../src/pages/shopping.page";
 import { shoppingCart } from "../../src/pages/shoppingCart.page";
+import { expect } from "chai";
 
 setDefaultTimeout(configPage.lapseTime)
 
@@ -20,13 +21,16 @@ Given("The user clicks on the button cart", async function () {
 })
 Given("The user clicks on button table", async function () {
     await shoppingPage.clickButtonTableCart()
+    expect(await shoppingCart.dropDownCouponVisible()).to.be.true
+    expect(await shoppingCart.dropDownShippingVisible()).to.be.true
+    expect(await shoppingCart.dropDownGitVisible()).to.be.true
 })
 Given("The user fills the coupon code {string}", async function (input1: string) {
-    console.log(input1)
     await shoppingCart.clickDropDownCoupon()
     await shoppingCart.setInputCoupon(input1)
 })
-Given("The user fills the shipping and taxes (Bolivia, Cochabamba and Code Postal) {string}", async function (input1: string) {
+Given("The user fills the shipping and taxes ,Bolivia, Cochabamba and Code Postal {string}", async function (input1: string) {
+    console.log(input1)
     let arrayInput: string[] = input1.split(',')
     console.log(arrayInput)
     await shoppingCart.clickDropDownShipping()
@@ -43,5 +47,5 @@ When("The user clicks on checkout", async function () {
 })
 Then("The next page is CHECKOUT", async function () {
     console.log("***** Checkout***********")
-    await shoppingCart.textChekoutVisble()
+    expect(await shoppingCart.textChekoutVisble()).to.be.true
 })
